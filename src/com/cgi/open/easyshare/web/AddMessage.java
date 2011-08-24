@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cgi.open.ServicesMapper;
+import com.cgi.open.Utilities.ServiceInvoker;
 import com.cgi.open.easyshare.EasyShareServices;
 import com.cgi.open.easyshare.PresentAsOtherUserTypeException;
 import com.cgi.open.easyshare.PresentAsSameUserTypeException;
@@ -39,7 +40,7 @@ public class AddMessage extends HttpServlet {
 		String text = myRequest.getParameter(REQUEST_PARAMETERS.TEXT);
 		String date = myRequest.getParameter(REQUEST_PARAMETERS.DATE);
 		String postTime = myRequest.getParameter(REQUEST_PARAMETERS.POST_TIME);
-		String postBy = myRequest.getParameter(REQUEST_PARAMETERS.POST_BY);
+		String postBy = ServiceInvoker.getUserName();
 		EasyShareServices easyshare = ServicesMapper.getEasyShareServicesProxyInstance();
 		Integer messageId=null;
 		try {

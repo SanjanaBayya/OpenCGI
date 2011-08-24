@@ -6,10 +6,14 @@ import java.util.Set;
 import junit.framework.TestCase;
 
 import com.cgi.open.ServicesMapper;
+import com.cgi.open.easyshare.AdminAssignedException;
 import com.cgi.open.easyshare.DuplicateSessionException;
 import com.cgi.open.easyshare.EasyShareServices;
 import com.cgi.open.easyshare.InvalidServiceInvocationException;
+import com.cgi.open.easyshare.PresentAsOtherUserTypeException;
+import com.cgi.open.easyshare.PresentAsSameUserTypeException;
 import com.cgi.open.easyshare.SessionNotFoundException;
+import com.cgi.open.easyshare.UserNotFoundException;
 import com.cgi.open.easyshare.UserTypeNotValidException;
 import com.cgi.open.userconcerns.SeparationOfUserConcerns;
 import com.cgi.open.userconcerns.model.ServiceDef;
@@ -57,6 +61,14 @@ public class CreateSessionTestCase extends TestCase{
 			fail("UserTypeNotValidException : Should not occur");
 		}catch (SessionNotFoundException e) {
 			fail("SessionNotFoundException : Should not occur");
+		} catch (PresentAsOtherUserTypeException e) {
+			fail("PresentAsOtherUserTypeException : Should not occur");
+		} catch (UserNotFoundException e) {
+			fail("UserNotFoundException : Should not occur");
+		} catch (AdminAssignedException e) {
+			fail("AdminAssignedException : Should not occur");
+		} catch (PresentAsSameUserTypeException e) {
+			fail("PresentAsSameUserTypeException : Should not occur");
 		} 
 	}
 	
@@ -80,6 +92,14 @@ public class CreateSessionTestCase extends TestCase{
 			fail("UserTypeNotValidException : Should not occur");
 		}catch (SessionNotFoundException e) {
 			fail("SessionNotFoundException : Should not occur");
-		}
+		}catch (PresentAsOtherUserTypeException e) {
+			fail("PresentAsOtherUserTypeException : Should not occur");
+		} catch (UserNotFoundException e) {
+			fail("UserNotFoundException : Should not occur");
+		} catch (AdminAssignedException e) {
+			fail("AdminAssignedException : Should not occur");
+		} catch (PresentAsSameUserTypeException e) {
+			fail("PresentAsSameUserTypeException : Should not occur");
+		} 
 	}
 }

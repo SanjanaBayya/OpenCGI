@@ -49,6 +49,14 @@
   </ServiceDefinition>
   
   <ServiceDefinition>
+    <serviceName>assignAdmin</serviceName>
+    <eligUserTypes>
+      <string>ADMIN</string>
+    </eligUserTypes>
+    <sessionRelationExists>false</sessionRelationExists>
+  </ServiceDefinition>
+  
+  <ServiceDefinition>
     <serviceName>getMySessions</serviceName>
     <eligUserTypes>
       <string>ALL</string>

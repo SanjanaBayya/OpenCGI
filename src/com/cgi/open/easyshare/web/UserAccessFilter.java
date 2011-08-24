@@ -17,11 +17,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import com.cgi.open.ServicesMapper;
+import com.cgi.open.Utilities.ServiceInvoker;
 import com.cgi.open.easyshare.DuplicateSessionException;
 import com.cgi.open.easyshare.EasyShareServices;
 import com.cgi.open.easyshare.InvalidServiceInvocationException;
 import com.cgi.open.easyshare.SessionNotFoundException;
 import com.cgi.open.easyshare.UserTypeNotValidException;
+import com.cgi.open.easyshare.model.UserDetails;
 import com.cgi.open.userconcerns.SeparationOfUserConcerns;
 import com.cgi.open.userconcerns.model.ServiceDef;
 import com.cgi.open.userconcerns.model.ServiceGroupDef;
@@ -59,53 +61,68 @@ public class UserAccessFilter implements Filter {
 		ServiceDef sd;
 		String userEmail;
 		Integer sessionId;
-		try {
+		
 			
 		HttpServletRequest req = (HttpServletRequest) request;
 		MyHttpServletRequest myRequest=new MyHttpServletRequest(req);
+		
+		ServiceResponse sr = new ServiceResponse();
+		RenderResponse r=new RenderResponse();
 		if(myRequest.getParameter(REQUEST_PARAMETERS.SESSION_ID)!=null){
 			sessionId = Integer.valueOf(myRequest.getParameter(REQUEST_PARAMETERS.SESSION_ID));
 		}
 		else{
 			sessionId=null;
 		}
-		out.println(sessionId);
 		service=req.getServletPath();
 		service=service.substring(1,service.length());
+		sr.initServiceResponse(myRequest, service);
 		ServiceGroupDef group=loadXml();
 		userEmail=getUser(req);
-		userEmail=userEmail+"@cgi.com";
-		out.println(userEmail);
+		userEmail=userEmail+"@cgi.com";		
+		ServiceInvoker.setUserDetails(new UserDetails(userEmail));
+		try {
 			if(group!=null){
 				sd=loadServiceDef(group, service);
 				if(sd!=null){
 					if(userEmail!=null){
-						if (sp.isServReqValid(sd,"surabhi@cgi.com", sessionId)) {
+						if (sp.isServReqValid(sd,userEmail, sessionId)) {
 							chain.doFilter(request, response);
-							out.print("hiiii");
 						}
 						else {
 							throw new InvalidServiceInvocationException();
 						}
 					}else{
-						out.print("User email is required");
+						sr.setCode("FAILURE");
+						sr.setMessage("User email is required");
+						r.render(response,sr);
 					}
 				}else{
-					out.print("Service not available!!!");
+					sr.setCode("FAILURE");
+					sr.setMessage("Service not available!!!");
+					r.render(response,sr);
 				}
 			}else{
-				out.print("service definitions not defined");
+				sr.setCode("FAILURE");
+				sr.setMessage("service definitions not defined");
+				r.render(response,sr);
 			}
 		} catch (InvalidServiceInvocationException e) {
-			out.println("Invalid service invocation");
+			sr.setCode("FAILURE");
+			sr.setMessage("Invalid service invocation");
+			r.render(response,sr);
 
 		} catch (UserTypeNotValidException e) {
-			out.println("UserTypeNotValidException : Should not occur");
+			sr.setCode("FAILURE");
+			sr.setMessage("User Type is not valid");
+			r.render(response,sr);
 		} catch (SessionNotFoundException e) {
-			out.println("SessionNotFoundException : Should not occur");
+			sr.setCode("FAILURE");
+			sr.setMessage("The Session requested is not available");
+			r.render(response,sr);
 		}
-		// RenderResponse r=new RenderResponse();
-		// r.render(myResponse);
+		// 
+		// 
 	}
 
 	/**
@@ -119,7 +136,7 @@ public class UserAccessFilter implements Filter {
 	}
 
 	public ServiceGroupDef loadXml() {
-		String file = "H:/eclipse_folder/OpenCGI/UserConcerns.xml";
+		String file = "D:/sanjana/Projects/OpenCGI/UserConcerns.xml";
 		ServiceGroupDef g = null;
 		XStream x = new XStream(new DomDriver());
 		x.alias("ServiceDefinitionGroup", ServiceGroupDef.class);

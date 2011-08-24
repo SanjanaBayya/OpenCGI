@@ -3,14 +3,16 @@ package com.cgi.open.easyshare.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cgi.open.easyshare.model.Session;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class RenderResponse {
 	
-	public void render(HttpServletResponse response,ServiceResponse sr) throws IOException{
+	public void render(ServletResponse response,ServiceResponse sr) throws IOException{
 		XStream x = new XStream(new DomDriver());
 		PrintWriter pw = response.getWriter();
 		pw.println(x.toXML(sr));
@@ -19,6 +21,7 @@ public class RenderResponse {
 	
 	public void render(MyHttpServletResponse myResponse) throws IOException{
 		XStream x = new XStream(new DomDriver());
+		x.alias("Session", Session.class);
 		PrintWriter pw = myResponse.getWriter();
 		pw.println(x.toXML(myResponse.getServiceResponse()));
 		pw.close();

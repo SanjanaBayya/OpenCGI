@@ -47,11 +47,13 @@ public class SeparationOfUserConcernsProxy2 implements SeparationOfUserConcerns 
 			else{
 				Set<UserType> eligUserTypes = UserType.getUserType(_serviceDef.getEligUserTypes());
 						for (UserType uType : eligUserTypes) {
+							validUser =Boolean.TRUE;
 							if (uType.equals(UserType.ADMIN)){
 								Set<String>admins=easyShare.getAllUsersLight(_sessionId, UserType.ADMIN);
 								try {
 										easyShare.getUser(_email, uType);
-										validSessionAccess=admins.contains(_email);
+										if(admins!=null)
+											validSessionAccess=admins.contains(_email);
 								} catch (UserNotFoundException e) {
 										validUser = Boolean.FALSE;
 								}
@@ -65,7 +67,8 @@ public class SeparationOfUserConcernsProxy2 implements SeparationOfUserConcerns 
 								Set<String>facilitators=easyShare.getAllUsersLight(_sessionId, UserType.FACILITATOR);
 								try {
 										easyShare.getUser(_email, uType);
-										validSessionAccess=facilitators.contains(_email);
+										if(facilitators!=null)
+											validSessionAccess=facilitators.contains(_email);
 								} catch (UserNotFoundException e) {
 										validUser = Boolean.FALSE;
 								}
@@ -77,7 +80,8 @@ public class SeparationOfUserConcernsProxy2 implements SeparationOfUserConcerns 
 							else if (uType.equals(UserType.ATTENDEE)){
 						
 								Set<String>attendees=easyShare.getAllUsersLight(_sessionId, UserType.ATTENDEE);
-								validSessionAccess=attendees.contains(_email);
+								if(attendees!=null)
+									validSessionAccess=attendees.contains(_email);
 								validUser=Boolean.TRUE;
 								if(validSessionAccess&&validUser){
 										break;

@@ -43,7 +43,7 @@ public class AddFacilitatorTestCase extends TestCase{
 		Integer sessionId=1;
 		String email="jaffer@cgi.com";
 		try {
-			if (sp.isServReqValid(sd, "anupama.charles", sessionId)){
+			if (sp.isServReqValid(sd, "surabhi@cgi.com", sessionId)){
 			Boolean isAdded=easy.addFacilitator(sessionId, email);			
 			assertEquals(Boolean.TRUE,isAdded);
 			}
@@ -70,7 +70,7 @@ public class AddFacilitatorTestCase extends TestCase{
 		Integer sessionId=15;
 		String email="jaffer@cgi.com";
 		try {
-			if (sp.isServReqValid(sd, "anupama.charles", sessionId)){
+			if (sp.isServReqValid(sd, "surabhi@cgi.com", sessionId)){
 			Boolean isAdded=easy.addFacilitator(sessionId, email);
 			fail("should raise SessionNotfoundException");
 			}
@@ -113,7 +113,7 @@ public class AddFacilitatorTestCase extends TestCase{
 		Integer sessionId=1;
 		String email="divya@cgi.com";
 		try {
-			if (sp.isServReqValid(sd, "anupama.charles", sessionId)){
+			if (sp.isServReqValid(sd, "surabhi@cgi.com", sessionId)){
 			Boolean isAdded=easy.addFacilitator(sessionId, email);
 			fail("should raise UserNotFoundException");
 			}
@@ -139,7 +139,7 @@ public class AddFacilitatorTestCase extends TestCase{
 		Integer sessionId=1;
 		String email="jaffer@cgi.com";
 		try {
-			if (sp.isServReqValid(sd, "anupama.charles", sessionId)){
+			if (sp.isServReqValid(sd, "surabhi@cgi.com", sessionId)){
 			Boolean isAdded=easy.addFacilitator(sessionId, email);
 			fail("should raise PresentAsSameUserTypeException");
 			}

@@ -39,7 +39,7 @@ public class AddFacilitator extends HttpServlet {
 		EasyShareServices easyshare = ServicesMapper.getEasyShareServicesProxyInstance();
 		Boolean isAssigned=null;
 		try {
-			isAssigned= easyshare.addAttendee(sessionId,email);
+			isAssigned= easyshare.addFacilitator(sessionId,email);
 			sr.setCode("SUCCESS");
 			sr.setMessage("SUCCESS");
 			sr.setData(isAssigned);

@@ -38,9 +38,13 @@ public interface EasyShareServices {
 	 * @param description 
 	 * @param appointments
 	 * @return
+	 * @throws PresentAsSameUserTypeException 
+	 * @throws AdminAssignedException 
+	 * @throws UserNotFoundException 
+	 * @throws PresentAsOtherUserTypeException 
 	 */
 	public Integer createSession(String sessionName, String description)
-			throws DuplicateSessionException;
+			throws DuplicateSessionException, PresentAsOtherUserTypeException, UserNotFoundException, AdminAssignedException, PresentAsSameUserTypeException;
 
 	/**
 	 * The service adds appointment to an existing session.

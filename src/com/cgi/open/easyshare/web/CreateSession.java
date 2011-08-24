@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cgi.open.ServicesMapper;
+import com.cgi.open.easyshare.AdminAssignedException;
 import com.cgi.open.easyshare.DuplicateSessionException;
 import com.cgi.open.easyshare.EasyShareServices;
+import com.cgi.open.easyshare.PresentAsOtherUserTypeException;
+import com.cgi.open.easyshare.PresentAsSameUserTypeException;
+import com.cgi.open.easyshare.UserNotFoundException;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
@@ -70,6 +74,18 @@ public class CreateSession extends HttpServlet {
 			sr.setMessage("SUCCESS");
 			sr.setData(sessionId);
 		} catch (DuplicateSessionException e) {
+			sr.setCode("FAILURE");
+			sr.setMessage(e.getMessage());
+		} catch (PresentAsOtherUserTypeException e) {
+			sr.setCode("FAILURE");
+			sr.setMessage(e.getMessage());
+		} catch (UserNotFoundException e) {
+			sr.setCode("FAILURE");
+			sr.setMessage(e.getMessage());
+		} catch (AdminAssignedException e) {
+			sr.setCode("FAILURE");
+			sr.setMessage(e.getMessage());
+		} catch (PresentAsSameUserTypeException e) {
 			sr.setCode("FAILURE");
 			sr.setMessage(e.getMessage());
 		}

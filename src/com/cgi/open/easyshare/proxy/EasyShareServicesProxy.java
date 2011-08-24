@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.cgi.open.ServicesMapper;
+import com.cgi.open.Utilities.ServiceInvoker;
 import com.cgi.open.easyshare.AdminAssignedException;
 import com.cgi.open.easyshare.DuplicateAppointmentException;
 import com.cgi.open.easyshare.AppointmentNotFoundException;
@@ -150,7 +151,7 @@ public class EasyShareServicesProxy implements EasyShareServices {
 	}
 
 	public Integer createSession(String sessionName,String description)
-			throws DuplicateSessionException {
+			throws DuplicateSessionException, PresentAsOtherUserTypeException, UserNotFoundException, AdminAssignedException, PresentAsSameUserTypeException {
 		Session newSession = new Session();
 		newSession.setSessionName(sessionName);
 		newSession.setDiscription(description);
@@ -160,6 +161,11 @@ public class EasyShareServicesProxy implements EasyShareServices {
 		}
 		Integer sessionId = persistent.saveNewSession(newSession);
 		newSession.setSessionId(sessionId);
+		try{
+			assignAdmin(sessionId,ServiceInvoker.getUserName());
+		}catch(SessionNotFoundException ex){
+			
+		}
 		return sessionId;
 	}
 

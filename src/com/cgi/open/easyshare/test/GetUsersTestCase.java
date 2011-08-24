@@ -58,7 +58,7 @@ public class GetUsersTestCase extends TestCase {
 		Integer sessionId = 1;
 		UserType uType = UserType.ALL;
 		try {
-			if (sp.isServReqValid(sd, "anupama.charles", sessionId)) {
+			if (sp.isServReqValid(sd, "surabhi@cgi.com", sessionId)) {
 				Set<User> Users = easy.getUsers(sessionId, uType);
 				assertTrue("retrieved", true);
 			} else {
