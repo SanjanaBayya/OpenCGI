@@ -2,275 +2,282 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>ProEasy</display-name>
   <filter>
-  	<description>
+    <description>
   	</description>
-  	<display-name>UserAccessFilter</display-name>
-  	<filter-name>UserAccessFilter</filter-name>
-  	<filter-class>com.cgi.open.easyshare.web.UserAccessFilter</filter-class>
+    <display-name>UserAccessFilter</display-name>
+    <filter-name>UserAccessFilter</filter-name>
+    <filter-class>com.cgi.open.easyshare.web.UserAccessFilter</filter-class>
   </filter>
   <filter-mapping>
-  	<filter-name>UserAccessFilter</filter-name>
-  	<url-pattern>/createSession</url-pattern>
-  	<url-pattern>/addAppointment</url-pattern>
-  	<url-pattern>/addAttendee</url-pattern>
-  	<url-pattern>/addFacilitator</url-pattern>
-  	<url-pattern>/addMessage</url-pattern>
-  	<url-pattern>/addResource</url-pattern>
-  	<url-pattern>/assignAdmin</url-pattern>
-  	<url-pattern>/removeAppointment</url-pattern>
-  	<url-pattern>/removeAttendee</url-pattern>
-  	<url-pattern>/removeFacilitator</url-pattern>
-  	<url-pattern>/removeResource</url-pattern>
-  	<url-pattern>/getAllSessions</url-pattern>
-  	<url-pattern>/getMessages</url-pattern>
-  	<url-pattern>/getResources</url-pattern>
-  	<url-pattern>/getSession</url-pattern>
-  	<url-pattern>/getUser</url-pattern>
-  	<url-pattern>/getUsers</url-pattern>
-  	<url-pattern>/getMySessions</url-pattern>
-  	<url-pattern>/getAllUsersLight</url-pattern>
+    <filter-name>UserAccessFilter</filter-name>
+    <url-pattern>/createSession</url-pattern>
+    <url-pattern>/addAppointment</url-pattern>
+    <url-pattern>/addAttendee</url-pattern>
+    <url-pattern>/addFacilitator</url-pattern>
+    <url-pattern>/addMessage</url-pattern>
+    <url-pattern>/addResource</url-pattern>
+    <url-pattern>/assignAdmin</url-pattern>
+    <url-pattern>/removeAppointment</url-pattern>
+    <url-pattern>/removeAttendee</url-pattern>
+    <url-pattern>/removeFacilitator</url-pattern>
+    <url-pattern>/removeResource</url-pattern>
+    <url-pattern>/getAllSessions</url-pattern>
+    <url-pattern>/getMessages</url-pattern>
+    <url-pattern>/getResources</url-pattern>
+    <url-pattern>/getSession</url-pattern>
+    <url-pattern>/getUser</url-pattern>
+    <url-pattern>/getUsers</url-pattern>
+    <url-pattern>/getMySessions</url-pattern>
+    <url-pattern>/getAllUsersLight</url-pattern>
   </filter-mapping>
-  
   <servlet>
     <servlet-name>hello</servlet-name>
     <servlet-class>test.HelloServlet</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>CreateSession</display-name>
-  	<servlet-name>CreateSession</servlet-name>
-  	<servlet-class>
+    <display-name>CreateSession</display-name>
+    <servlet-name>CreateSession</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.CreateSession</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>AddAppointmentServlet</display-name>
-  	<servlet-name>AddAppointment</servlet-name>
-  	<servlet-class>
+    <display-name>AddAppointmentServlet</display-name>
+    <servlet-name>AddAppointment</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.AddAppointment</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>AssignAdmin</display-name>
-  	<servlet-name>AssignAdmin</servlet-name>
-  	<servlet-class>
+    <display-name>AssignAdmin</display-name>
+    <servlet-name>AssignAdmin</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.AssignAdmin</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>AddAttendee</display-name>
-  	<servlet-name>AddAttendee</servlet-name>
-  	<servlet-class>
+    <display-name>AddAttendee</display-name>
+    <servlet-name>AddAttendee</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.AddAttendee</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>AddFacilitator</display-name>
-  	<servlet-name>AddFacilitator</servlet-name>
-  	<servlet-class>
+    <display-name>AddFacilitator</display-name>
+    <servlet-name>AddFacilitator</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.AddFacilitator</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>AddMessage</display-name>
-  	<servlet-name>AddMessage</servlet-name>
-  	<servlet-class>
+    <display-name>AddMessage</display-name>
+    <servlet-name>AddMessage</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.AddMessage</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>RemoveAppointment</display-name>
-  	<servlet-name>RemoveAppointment</servlet-name>
-  	<servlet-class>
+    <display-name>AddResource</display-name>
+    <servlet-name>AddResource</servlet-name>
+    <servlet-class>
+  	com.cgi.open.easyshare.web.AddResource</servlet-class>
+  </servlet>
+  <servlet>
+    <description>
+  	</description>
+    <display-name>RemoveAppointment</display-name>
+    <servlet-name>RemoveAppointment</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.RemoveAppointment</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>DesignateUser</display-name>
-  	<servlet-name>DesignateUser</servlet-name>
-  	<servlet-class>
+    <display-name>DesignateUser</display-name>
+    <servlet-name>DesignateUser</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.DesignateUser</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>RemoveAttendee</display-name>
-  	<servlet-name>RemoveAttendee</servlet-name>
-  	<servlet-class>
+    <display-name>RemoveAttendee</display-name>
+    <servlet-name>RemoveAttendee</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.RemoveAttendee</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>RemoveFacilitator</display-name>
-  	<servlet-name>RemoveFacilitator</servlet-name>
-  	<servlet-class>
+    <display-name>RemoveFacilitator</display-name>
+    <servlet-name>RemoveFacilitator</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.RemoveFacilitator</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>RemoveResource</display-name>
-  	<servlet-name>RemoveResource</servlet-name>
-  	<servlet-class>
+    <display-name>RemoveResource</display-name>
+    <servlet-name>RemoveResource</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.RemoveResource</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>GetAllSessions</display-name>
-  	<servlet-name>GetAllSessions</servlet-name>
-  	<servlet-class>
+    <display-name>GetAllSessions</display-name>
+    <servlet-name>GetAllSessions</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.GetAllSessions</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>GetMessages</display-name>
-  	<servlet-name>GetMessages</servlet-name>
-  	<servlet-class>
+    <display-name>GetMessages</display-name>
+    <servlet-name>GetMessages</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.GetMessages</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>GetResources</display-name>
-  	<servlet-name>GetResources</servlet-name>
-  	<servlet-class>
+    <display-name>GetResources</display-name>
+    <servlet-name>GetResources</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.GetResources</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>GetSession</display-name>
-  	<servlet-name>GetSession</servlet-name>
-  	<servlet-class>
+    <display-name>GetSession</display-name>
+    <servlet-name>GetSession</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.GetSession</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>GetUser</display-name>
-  	<servlet-name>GetUser</servlet-name>
-  	<servlet-class>
+    <display-name>GetUser</display-name>
+    <servlet-name>GetUser</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.GetUser</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>GetUsers</display-name>
-  	<servlet-name>GetUsers</servlet-name>
-  	<servlet-class>
+    <display-name>GetUsers</display-name>
+    <servlet-name>GetUsers</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.GetUsers</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>GetMySessions</display-name>
-  	<servlet-name>GetMySessions</servlet-name>
-  	<servlet-class>
+    <display-name>GetMySessions</display-name>
+    <servlet-name>GetMySessions</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.GetMySessions</servlet-class>
   </servlet>
   <servlet>
-  	<description>
+    <description>
   	</description>
-  	<display-name>GetAllUsersLight</display-name>
-  	<servlet-name>GetAllUsersLight</servlet-name>
-  	<servlet-class>
+    <display-name>GetAllUsersLight</display-name>
+    <servlet-name>GetAllUsersLight</servlet-name>
+    <servlet-class>
   	com.cgi.open.easyshare.web.GetAllUsersLight</servlet-class>
   </servlet>
-  
-
   <servlet-mapping>
     <servlet-name>hello</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>CreateSession</servlet-name>
-  	<url-pattern>/createSession</url-pattern>
+    <servlet-name>CreateSession</servlet-name>
+    <url-pattern>/createSession</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>AddAppointment</servlet-name>
-  	<url-pattern>/addAppointment</url-pattern>
+    <servlet-name>AddAppointment</servlet-name>
+    <url-pattern>/addAppointment</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>AssignAdmin</servlet-name>
-  	<url-pattern>/assignAdmin</url-pattern>
+    <servlet-name>AssignAdmin</servlet-name>
+    <url-pattern>/assignAdmin</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>AddAttendee</servlet-name>
-  	<url-pattern>/addAttendee</url-pattern>
+    <servlet-name>AddAttendee</servlet-name>
+    <url-pattern>/addAttendee</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>AddFacilitator</servlet-name>
-  	<url-pattern>/addFacilitator</url-pattern>
+    <servlet-name>AddResource</servlet-name>
+    <url-pattern>/addResource</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>AddMessage</servlet-name>
-  	<url-pattern>/addMessage</url-pattern>
+    <servlet-name>AddFacilitator</servlet-name>
+    <url-pattern>/addFacilitator</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>RemoveAppointment</servlet-name>
-  	<url-pattern>/removeAppointment</url-pattern>
+    <servlet-name>AddMessage</servlet-name>
+    <url-pattern>/addMessage</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>RemoveAttendee</servlet-name>
-  	<url-pattern>/removeAttendee</url-pattern>
+    <servlet-name>RemoveAppointment</servlet-name>
+    <url-pattern>/removeAppointment</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>DesignateUser</servlet-name>
-  	<url-pattern>/designateUser</url-pattern>
+    <servlet-name>RemoveAttendee</servlet-name>
+    <url-pattern>/removeAttendee</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>RemoveFacilitator</servlet-name>
-  	<url-pattern>/removeFacilitator</url-pattern>
+    <servlet-name>DesignateUser</servlet-name>
+    <url-pattern>/designateUser</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>RemoveResource</servlet-name>
-  	<url-pattern>/removeResource</url-pattern>
+    <servlet-name>RemoveFacilitator</servlet-name>
+    <url-pattern>/removeFacilitator</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>GetAllSessions</servlet-name>
-  	<url-pattern>/getAllSessions</url-pattern>
+    <servlet-name>RemoveResource</servlet-name>
+    <url-pattern>/removeResource</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>GetMessages</servlet-name>
-  	<url-pattern>/getMessages</url-pattern>
+    <servlet-name>GetAllSessions</servlet-name>
+    <url-pattern>/getAllSessions</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>GetResources</servlet-name>
-  	<url-pattern>/getResources</url-pattern>
+    <servlet-name>GetMessages</servlet-name>
+    <url-pattern>/getMessages</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>GetSession</servlet-name>
-  	<url-pattern>/getSession</url-pattern>
+    <servlet-name>GetResources</servlet-name>
+    <url-pattern>/getResources</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>GetUser</servlet-name>
-  	<url-pattern>/getUser</url-pattern>
+    <servlet-name>GetSession</servlet-name>
+    <url-pattern>/getSession</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>GetUsers</servlet-name>
-  	<url-pattern>/getUsers</url-pattern>
+    <servlet-name>GetUser</servlet-name>
+    <url-pattern>/getUser</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>GetMySessions</servlet-name>
-  	<url-pattern>/getMySessions</url-pattern>
+    <servlet-name>GetUsers</servlet-name>
+    <url-pattern>/getUsers</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>GetAllUsersLight</servlet-name>
-  	<url-pattern>/getAllUsersLight</url-pattern>
+    <servlet-name>GetMySessions</servlet-name>
+    <url-pattern>/getMySessions</url-pattern>
   </servlet-mapping>
-  
-  
+  <servlet-mapping>
+    <servlet-name>GetAllUsersLight</servlet-name>
+    <url-pattern>/getAllUsersLight</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
